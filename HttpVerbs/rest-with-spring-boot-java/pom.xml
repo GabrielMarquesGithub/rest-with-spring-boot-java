@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<!-- versão do maven utilizado -->
+	<modelVersion>4.0.0</modelVersion>
+	<!-- parent indica o pai que neste caso o pai do maven é o projeto spring boot -->
+	<parent>
+		<!-- groupId é algo como o pré-fixo da estrutura de pacotes -->
+		<groupId>org.springframework.boot</groupId>
+		<!-- nome do artefato final -->
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.0.0-M5</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>br.com.nikisgabriel</groupId>
+	<artifactId>rest-with-spring-boot-java</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<!-- tag para dfinir o nome do projeto -->
+	<name>rest-with-spring-boot-java</name>
+	<description>Demo project for Spring Boot</description>
+	<!-- em properties podemos definir versões -->
+	<properties>
+		<java.version>18</java.version>
+		<dozer.version>6.4.0</dozer.version>
+	</properties>
+	<!-- dependencies declara todas as dependencias usadas no projeto -->
+	<dependencies>
+		<!-- dependencia padrão do spring -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<!-- dependencias database -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+		
+		<!-- dependencia mapeamento -->
+		<dependency>
+			<groupId>com.github.dozermapper</groupId>
+			<artifactId>dozer-core</artifactId>
+			<version>${dozer.version}</version>
+		</dependency>
+
+		<!-- dependencia de teste -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- dependencia do devtools -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+	</dependencies>
+
+	<!-- build define como o projeto será compilado -->
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+	<!-- repositories define a lista de repositorios para realização dos downloads das dependencias -->
+	<repositories>
+		<repository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+
+</project>

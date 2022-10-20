@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    #infos para conexão ao database#
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/java_spring_boot_estudos?useTimezone=true&serverTimezone=UTC
+    username: root
+    password: "####"
+  jpa:
+    hibernate:
+      #config para geração do ddl a partir do hibernate#
+      ddl-auto: update
+    properties:
+      hibernate:
+        #config do dicionario a ser usado neste caso o mysql#
+        dialect: org.hibernate.dialect.MySQLDialect
+      #config para exibição do sql criado a partir do hibernate#
+      show-sql: false
