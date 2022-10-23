@@ -1,7 +1,6 @@
 package br.com.nikisgabriel.model;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -31,9 +30,6 @@ public class Person implements Serializable {
 	
 	@Column(length = 10, nullable = false)
 	private String gender;
-	
-	@Column(name = "birth_day", nullable = false)
-	private Date birthDay;
 
 	// construtor padrão para
 	public Person() {
@@ -77,14 +73,6 @@ public class Person implements Serializable {
 
 	public void setGender(String gender) {
 		this.gender = gender;
-	}
-
-	public Date getBirthDay() {
-		return birthDay;
-	}
-
-	public void setBirthDay(Date birthDay) {
-		this.birthDay = birthDay;
 	}
 
 	@Override

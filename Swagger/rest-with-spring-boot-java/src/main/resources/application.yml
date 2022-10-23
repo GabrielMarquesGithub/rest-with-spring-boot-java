@@ -1,7 +1,7 @@
 spring:
   datasource:
     #infos para conexão ao database#
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/java_spring_boot_estudos?useTimezone=true&serverTimezone=UTC
     username: root
     password: "####"

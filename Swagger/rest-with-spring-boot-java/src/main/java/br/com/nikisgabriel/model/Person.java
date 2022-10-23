@@ -1,21 +1,38 @@
-package br.com.nikisgabriel.data.vo.v2;
+package br.com.nikisgabriel.model;
 
 import java.io.Serializable;
-import java.util.Date;
 
-//Entidade em sua versão VO
-public class PersonVOV2 implements Serializable {
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "person")
+public class Person implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String firstName;
-	private String lastName;
-	private String adress;
-	private String gender;
-	private Date birthDay;
 
-	public PersonVOV2() {
+	@Column(name = "first_name", length = 70, nullable = false)
+	private String firstName;
+	
+	@Column(name = "last_name", length = 70, nullable = false)
+	private String lastName;
+	
+	@Column(length = 100, nullable = false)
+	private String adress;
+	
+	@Column(length = 10, nullable = false)
+	private String gender;
+
+	// construtor padrão para
+	public Person() {
 	}
 
 	public Long getId() {
@@ -58,20 +75,11 @@ public class PersonVOV2 implements Serializable {
 		this.gender = gender;
 	}
 
-	public Date getBirthDay() {
-		return birthDay;
-	}
-
-	public void setBirthDay(Date birthDay) {
-		this.birthDay = birthDay;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((adress == null) ? 0 : adress.hashCode());
-		result = prime * result + ((birthDay == null) ? 0 : birthDay.hashCode());
 		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
 		result = prime * result + ((gender == null) ? 0 : gender.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
@@ -87,16 +95,11 @@ public class PersonVOV2 implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		PersonVOV2 other = (PersonVOV2) obj;
+		Person other = (Person) obj;
 		if (adress == null) {
 			if (other.adress != null)
 				return false;
 		} else if (!adress.equals(other.adress))
-			return false;
-		if (birthDay == null) {
-			if (other.birthDay != null)
-				return false;
-		} else if (!birthDay.equals(other.birthDay))
 			return false;
 		if (firstName == null) {
 			if (other.firstName != null)
