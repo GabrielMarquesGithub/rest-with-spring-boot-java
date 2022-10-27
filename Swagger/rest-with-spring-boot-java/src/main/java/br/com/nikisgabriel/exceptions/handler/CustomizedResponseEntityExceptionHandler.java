@@ -11,6 +11,7 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import br.com.nikisgabriel.exceptions.ExceptionResponse;
+import br.com.nikisgabriel.exceptions.InvalidJwtAuthenticationException;
 import br.com.nikisgabriel.exceptions.ResourceNotFoundException;
 
 //o @ControllerAdvice é um  responsável pelo tratamento de exceções globais substituindo a necessidade de em cada controller ter de realizar o tratamento 
@@ -44,4 +45,18 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
 		//retornando um entidade de resposta com a exceção e o seu respectivo código
 		return new ResponseEntity<>(exceptionResponse, HttpStatus.NOT_FOUND);
 	}
+	
+	@ExceptionHandler(InvalidJwtAuthenticationException.class)
+	public ResponseEntity<ExceptionResponse> handlerInvalidJwtAuthenticationException(
+			Exception ex, WebRequest request) {
+		
+		ExceptionResponse exceptionResponse = new ExceptionResponse(
+				new Date(), 
+				ex.getMessage(), 
+				request.getDescription(false));
+		
+		//retornando um entidade de resposta com a exceção e o seu respectivo código
+		return new ResponseEntity<>(exceptionResponse, HttpStatus.FORBIDDEN);
+	}
+	
 }

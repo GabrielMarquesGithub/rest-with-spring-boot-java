@@ -1,3 +1,11 @@
+#para utilização do cors globalmente#
+cors:
+  originPatterns: http://localhost:3000,http://localhost:8080
+security:
+  jwt:
+    token:
+      secret-key: 53cr37
+      expire-lenght: 1000 * 60 * 60
 spring:
   datasource:
     #infos para conexão ao database#
